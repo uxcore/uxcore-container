@@ -6,7 +6,7 @@ const {BoolSetter, TextSetter, ChoiceSetter, JsonSetter, NumberSetter} = require
 module.exports = Bundle.createPrototype({
     title: "布局容器",
     category: "布局",
-    icon: "", // todo: require("./logo.svg"),
+    icon: require('./logo.svg'), // todo: require("./logo.svg"),
     componentName: "Container",
     canHovering: true,
     canSelecting: true,
