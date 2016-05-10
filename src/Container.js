@@ -19,6 +19,9 @@ class Container extends React.Component {
         let me = this;
         let {prefixCls, children, horizontalCenter, ...userStyles} = me.props;
         let styles = assign({}, userStyles);
+        if (!me.props.children.length) {
+            styles.outline = '1px dashed #555';
+        }
         if (horizontalCenter) {
             styles.textAlign = 'center';
         }
@@ -38,8 +41,14 @@ class Container extends React.Component {
 Container.defaultProps = {
     prefixCls: 'kuma-ve-container',
     horizontalCenter: true,
+    backgroundColor: '#fff',
     width: 'auto',
-    height: 100
+    height: 100,
+    borderTop: '1px dashed #555',
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: 0,
+    paddingBottom: 0
 }
 
 
@@ -89,61 +98,33 @@ Container.propTypes = {
      */
     borderRight: React.PropTypes.string,
     /**
-     * @title 左内边距
+     * @title 左边距
      */
     paddingLeft: React.PropTypes.oneOfType([
         React.PropTypes.string,
         React.PropTypes.number
     ]),
     /**
-     * @title 右内边距
+     * @title 右边距
      */
     paddingRight: React.PropTypes.oneOfType([
         React.PropTypes.string,
         React.PropTypes.number
     ]),
     /**
-     * @title 上内边距
+     * @title 上边距
      */
     paddingTop: React.PropTypes.oneOfType([
         React.PropTypes.string,
         React.PropTypes.number
     ]),
     /**
-     * @title 下内边距
+     * @title 下边距
      */
     paddingBottom: React.PropTypes.oneOfType([
         React.PropTypes.string,
         React.PropTypes.number
     ]),
-    /**
-     * @title 左外边距
-     */
-    marginLeft: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number
-    ]),
-    /**
-     * @title 右外边距
-     */
-    marginRight: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number
-    ]),
-    /**
-     * @title 上外边距
-     */
-    marginTop: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number
-    ]),
-    /**
-     * @title 下外边距
-     */
-    marginBottom: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number
-    ])
 }
 
 Container.displayName = "Container";
